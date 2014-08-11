@@ -25,8 +25,8 @@ describe 'station' do
   end
 
    it 'is the same station if it has the same name' do
-    station1 = Station.new('Killingsworth','24th St')
-    station2 = Station.new('Killingsworth','24th St')
+    station1 = Station.new('Killingsworth','24th St',0)
+    station2 = Station.new('Killingsworth','24th St',0)
     expect(station1).to eq station2
   end
 

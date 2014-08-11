@@ -20,13 +20,25 @@ describe 'stop' do
     create_test
     save_test
     Stop.all
-    expect(@stop1.station).to eq (1)
+    expect(@stop1.station_id).to eq (1)
   end
 
-   it 'is the same stop if it has the same name' do
+  it 'is the same stop if it has the same name' do
     stop1 = Stop.new(1,2,3)
     stop2 = Stop.new(1,2,3)
     expect(stop1).to eq stop2
+  end
+
+  it 'lists the correct number of trains for a single stop' do
+    create_test
+    save_test
+    expect(Stop.list_trains('Oregon City').length).to eq 2
+  end
+
+  it 'lists the correct number of stations for a single train' do
+    create_test
+    save_test
+    expect(Stop.list_stops('Red').length).to eq 2
   end
 
 end

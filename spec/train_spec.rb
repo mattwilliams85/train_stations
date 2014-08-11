@@ -24,8 +24,8 @@ describe 'train' do
   end
 
    it 'is the same train if it has the same name' do
-    train1 = Train.new('Orange')
-    train2 = Train.new('Orange')
+    train1 = Train.new('Orange',0)
+    train2 = Train.new('Orange',0)
     expect(train1).to eq train2
   end
 
