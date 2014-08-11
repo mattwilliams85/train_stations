@@ -4,7 +4,6 @@ class Station
   def initialize(name,location)
     @name = name
     @location = location
-    @id = 0
   end
 
   def self.all
@@ -22,4 +21,9 @@ class Station
     result = DB.exec("INSERT INTO stations (name, location) VALUES ('#{@name}', '#{@location}') RETURNING ID;")
     @id = result.first['id'].to_i
   end
+
+  def ==(other_station)
+    self.name == other_station.name && self.location == other_station.location
+  end
+
 end

@@ -1,27 +1,32 @@
 require 'spec_helper'
 
-describe 'station' do
-  it 'initializes station with name, location, and id' do
+describe 'train' do
+  it 'initializes train with name' do
     create_test
-    expect(@station1).to be_an_instance_of Station
+    expect(@train1).to be_an_instance_of Train
   end
 
   it 'starts with no stations saved in the system' do
-    expect(Station.all).to eq []
+    expect(Train.all).to eq []
   end
 
-  it 'saves the station class into the database and returns ID' do
+  it 'saves the train class into the database and returns ID' do
     create_test
     save_test
-    expect(@station1.id).to be_an_instance_of(Fixnum)
+    expect(@train1.id).to be_an_instance_of(Fixnum)
   end
 
   it 'pulls the correct data from the server into the class' do
     create_test
     save_test
-    Station.all
-    expect(@station1.name).to eq ('Killingsworth')
-    expect(@station1.location).to eq ('24th St')
+    Train.all
+    expect(@train1.name).to eq ('Red')
+  end
+
+   it 'is the same train if it has the same name' do
+    train1 = Train.new('Orange')
+    train2 = Train.new('Orange')
+    expect(train1).to eq train2
   end
 
 end
