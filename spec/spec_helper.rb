@@ -24,10 +24,10 @@ def create_test
   @train2 = Train.new('Blue',0)
   @train3 = Train.new('Green',0)
   @train4 = Train.new('Yellow',0)
-  @stop1 = Stop.new(1,1,1)
-  @stop2 = Stop.new(2,1,2)
-  @stop3 = Stop.new(3,2,3)
-  @stop4 = Stop.new(3,3,3)
+  @stop1 = Stop.new(1,1,1,10)
+  @stop2 = Stop.new(2,1,2,10)
+  @stop3 = Stop.new(3,2,3,10)
+  @stop4 = Stop.new(3,3,3,10)
 end
 
 def save_test

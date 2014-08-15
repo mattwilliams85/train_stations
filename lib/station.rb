@@ -28,19 +28,19 @@ class Station
     self.name == other_station.name && self.location == other_station.location
   end
 
-  def self.fetch_id(name)
+  def self.fetch_by_name(name)
     Station.all.each do |station|
       if station.name == name
-        @result = station.id
+        @result = station
       end
     end
     @result
   end
 
-  def self.fetch_name(id)
+  def self.fetch_by_id(id)
     Station.all.each do |station|
       if station.id == id
-        @result = station.name
+        @result = station
       end
     end
     @result

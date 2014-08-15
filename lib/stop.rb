@@ -2,12 +2,13 @@ require 'train'
 require 'station'
 
 class Stop
-  attr_accessor :station_id, :train_id, :position, :id
+  attr_accessor :station_id, :train_id, :position, :miles_to_next, :id
 
-  def initialize(station_id,train_id,position)
+  def initialize(station_id,train_id,position,miles_to_next)
     @station_id = station_id
     @train_id = train_id
     @position = position
+    @miles_to_next = miles_to_next
   end
 
   def self.all
@@ -17,6 +18,7 @@ class Stop
       station_id = stop['station_id'].to_i
       train_id = stop['train_id'].to_i
       position = stop['position'].to_i
+      miles_to_next = stop['miles_to_next'].to_i
       stops << Stop.new(station_id,train_id,position)
     end
     stops

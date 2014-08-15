@@ -24,8 +24,8 @@ describe 'stop' do
   end
 
   it 'is the same stop if it has the same name' do
-    stop1 = Stop.new(1,2,3)
-    stop2 = Stop.new(1,2,3)
+    stop1 = Stop.new(1,2,3,10)
+    stop2 = Stop.new(1,2,3,10)
     expect(stop1).to eq stop2
   end
 
