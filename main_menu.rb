@@ -57,7 +57,4 @@ def main_menu
   end
 end
 
-
-
-
 main_menu

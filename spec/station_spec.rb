@@ -37,11 +37,11 @@ describe 'station' do
     expect(DB.exec("SELECT * FROM stations WHERE name='new_name'")).to_not be nil
   end
 
-  # it 'will delete a selected station' do
-  #   create_test
-  #   save_test
-  #   @station1.delete
-  #   expect(DB.exec("SELECT * FROM stations WHERE name='#{@station1.name}'").first).to be nil
-  # end
+  it 'will delete a selected station' do
+    create_test
+    save_test
+    @station1.delete
+    expect(DB.exec("SELECT * FROM stations WHERE name='#{@station1.name}'").first).to be nil
+  end
 
 end

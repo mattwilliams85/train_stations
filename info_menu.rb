@@ -1,22 +1,23 @@
 def info_menu
-  header
-  puts "1 > Train Information"
-  puts "2 > Station Information"
-  puts "3 > Return to Main Menu"
-  case gets.chomp
-  when "1"
-    train_info
-    continue
-    info_menu
-  when "2"
-    station_info
-    continue
-    info_menu
-  when "3"
-    main_menu
-  else
-    invalid
-    info_menu
+  input = nil
+  until input == '3'
+    header
+    puts "1 > Train Information"
+    puts "2 > Station Information"
+    puts "3 > Return to Main Menu"
+    input = gets.chomp
+    case input
+    when "1"
+      train_info
+      continue
+    when "2"
+      station_info
+      continue
+    when "3"
+      main_menu
+    else
+      invalid
+    end
   end
 end
 
