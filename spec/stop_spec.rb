@@ -41,4 +41,11 @@ describe 'stop' do
     expect(Stop.list_stops('Red').length).to eq 2
   end
 
+  it 'deletes a stop when given train id and station id' do
+    create_test
+    save_test
+    Stop.delete(@train1.id,@station1.id)
+    expect(DB.exec("SELECT * FROM stops WHERE train_id=#{@train1.id} AND station_id=#{@station1.id}").first).to eq nil
+  end
+
 end

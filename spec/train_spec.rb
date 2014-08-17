@@ -23,10 +23,24 @@ describe 'train' do
     expect(@train1.name).to eq ('Red')
   end
 
-   it 'is the same train if it has the same name' do
+  it 'is the same train if it has the same name' do
     train1 = Train.new('Orange',0)
     train2 = Train.new('Orange',0)
     expect(train1).to eq train2
+  end
+
+  it 'will update a train with a new name' do
+    create_test
+    save_test
+    @train1.update('new_name')
+    expect(DB.exec("SELECT * FROM trains WHERE name='new_name'").first).to_not be nil
+  end
+
+  it 'will delete a selected train' do
+    create_test
+    save_test
+    @train1.delete
+    expect(DB.exec("SELECT * FROM trains WHERE name='#{@train1.name}'").first).to be nil
   end
 
 end
