@@ -8,7 +8,7 @@ class Train
 
   def self.all
     trains = []
-    result = DB.exec('SELECT * FROM trains')
+    result = DB.exec("SELECT * FROM trains")
     result.each do |train|
       name = train['name']
       id = train['id'].to_i
@@ -26,19 +26,19 @@ class Train
     self.name == other_train.name
   end
 
-  def self.fetch_id(name)
+  def self.fetch_by_name(name)
     Train.all.each do |train|
       if train.name == name
-        @result = train.id
+        @result = train
       end
     end
     @result
   end
 
-  def self.fetch_name(id)
+  def self.fetch_by_id(id)
     Train.all.each do |train|
       if train.id == id
-        @result = train.name
+        @result = train
       end
     end
     @result

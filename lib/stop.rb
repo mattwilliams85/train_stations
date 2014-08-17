@@ -1,5 +1,5 @@
-require 'train'
-require 'station'
+require './lib/train'
+require './lib/station'
 
 class Stop
   attr_accessor :station_id, :train_id, :position, :miles_to_next, :id
@@ -19,7 +19,7 @@ class Stop
       train_id = stop['train_id'].to_i
       position = stop['position'].to_i
       miles_to_next = stop['miles_to_next'].to_i
-      stops << Stop.new(station_id,train_id,position)
+      stops << Stop.new(station_id,train_id,position,miles_to_next)
     end
     stops
   end
@@ -34,24 +34,24 @@ class Stop
   end
 
   def self.list_trains(name)
-    station_id = Station.fetch_id(name)
+    station_id = Station.fetch_by_name(name).id
     @trains = []
     stops = Stop.all
     stops.each do |stop|
       if stop.station_id == station_id
-        @trains << Train.fetch_name(stop.train_id)
+        @trains << Train.fetch_by_id(stop.train_id)
       end
     end
     @trains
   end
 
   def self.list_stops(name)
-    station_id = Station.fetch_id(name)
+    station_id = Station.fetch_by_name(name).id
     @stations = []
     stops = Stop.all
     stops.each do |stop|
       if stop.station_id == station_id
-        @stations << Station.fetch_name(stop.station_id)
+        @stations << Station.fetch_by_id(stop.station_id)
       end
     end
     @stations
