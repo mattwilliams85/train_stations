@@ -139,8 +139,8 @@ def remove_stop
   puts "Enter the name of the station you wish to untie:"
   s_name = gets.chomp
   station = Station.fetch_by_name(s_name)
-  if t_name.class == NilClass || s_name.class == NilClass
-    puts "[Your train or station name is invalid, please try again]"
+  if train.class == NilClass || station.class == NilClass
+    puts "[Train or station name is invalid, please try again]"
     sleep (1)
     remove_stop
   else
