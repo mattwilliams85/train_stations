@@ -29,6 +29,7 @@ class Station
   end
 
   def self.fetch_by_name(name)
+    @result = "invalid"
     Station.all.each do |station|
       if station.name == name
         @result = station

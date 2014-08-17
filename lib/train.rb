@@ -27,6 +27,7 @@ class Train
   end
 
   def self.fetch_by_name(name)
+    @result = nil
     Train.all.each do |train|
       if train.name == name
         @result = train

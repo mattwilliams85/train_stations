@@ -25,7 +25,7 @@ class Stop
   end
 
   def save
-    result = DB.exec("INSERT INTO stops (station_id, train_id, position) VALUES (#{@station_id}, #{@train_id},#{@position}) RETURNING ID;")
+    result = DB.exec("INSERT INTO stops (station_id, train_id, position) VALUES (#{@station_id}, #{@train_id}, #{@position}) RETURNING ID;")
     @id = result.first['id'].to_i
   end
 

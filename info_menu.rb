@@ -1,5 +1,3 @@
-require 'train_menu'
-
 def info_menu
   header
   puts "1 > Train Information"
