@@ -125,7 +125,7 @@ def add_stop
       new_stop = Stop.new(result.id,train.id,0,0)
       new_stop.save
       puts "Your new stop for the #{train.name} line has been added!"
-      puts "[Press 1 to tie another train or 2 to exit]"
+      puts "[Press 1 to tie another station or 2 to exit]"
       input = gets.chomp
     end
   end
