@@ -28,6 +28,7 @@ def create_test
   @stop2 = Stop.new(2,1,2,10)
   @stop3 = Stop.new(3,2,3,10)
   @stop4 = Stop.new(3,3,3,10)
+  @stop5 = Stop.new(1,3,3,10)
 end
 
 def save_test
@@ -43,4 +44,5 @@ def save_test
   @stop2.save
   @stop3.save
   @stop4.save
+  @stop5.save
 end

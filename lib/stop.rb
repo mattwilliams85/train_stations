@@ -46,12 +46,12 @@ class Stop
   end
 
   def self.list_stops(name)
-    station_id = Station.fetch_by_name(name).id
+    train_id = Train.fetch_by_name(name).id
     @stations = []
     stops = Stop.all
     stops.each do |stop|
-      if stop.station_id == station_id
-        @stations << Station.fetch_by_id(stop.station_id)
+      if stop.train_id == train_id
+        @stations << Station.fetch_by_id(stop.train_id)
       end
     end
     @stations

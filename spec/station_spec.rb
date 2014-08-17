@@ -24,10 +24,17 @@ describe 'station' do
     expect(@station1.location).to eq ('24th St')
   end
 
-   it 'is the same station if it has the same name' do
+  it 'is the same station if it has the same name' do
     station1 = Station.new('Killingsworth','24th St',0)
     station2 = Station.new('Killingsworth','24th St',0)
     expect(station1).to eq station2
+  end
+
+  it 'will update a station with a new name' do
+    create_test
+    save_test
+    @station1.update('new_name')
+    expect(DB.exec("SELECT * FROM stations WHERE name='new_name'")).to_not be nil
   end
 
 end

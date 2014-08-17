@@ -29,7 +29,7 @@ class Station
   end
 
   def self.fetch_by_name(name)
-    @result = "invalid"
+    @result = nil
     Station.all.each do |station|
       if station.name == name
         @result = station
@@ -45,6 +45,11 @@ class Station
       end
     end
     @result
+  end
+
+  def update(new_name)
+    DB.exec("UPDATE stations SET name='#{new_name}' WHERE name='#{self.name}'")
+    @name = new_name
   end
 
 end

@@ -10,13 +10,14 @@ def manage_menu
     add_station
     manage_menu
   when "2"
-    # update_station
+    update_station
+    manage_menu
   when "3"
     # add_train
   when "4"
     # update_train
   when "5"
-    # main_menu
+    main_menu
   else
     invalid
     main_menu
@@ -36,6 +37,7 @@ def add_station
     result = Train.fetch_by_name(t_name)
     if result.class == NilClass
       puts "[That is not a valid name, please try again]"
+      sleep (1)
     else
       new_stop = Stop.new(new_station.id,result.id,0,0)
       new_stop.save
@@ -44,6 +46,29 @@ def add_station
       input = gets.chomp
     end
   end
+end
+
+def update_station
+  list_stations
+  puts "Enter the name of the station you wish to change:"
+  name = gets.chomp
+  station = Station.fetch_by_name(name)
+  if station.class == NilClass
+    puts "[That is not a valid name, please try again]"
+    sleep (1)
+  else
+    puts "Please enter the new station name:"
+    new_name = gets.chomp
+    station.update(new_name)
+    puts "#{name} has now been changed to #{new_name}!"
+    sleep (1)
+  end
+end
+
+def list_stations
+  puts "-----------"
+  Station.all.each { |station| puts station.name }
+  puts "-----------"
 end
 
 def list_trains

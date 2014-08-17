@@ -35,7 +35,7 @@ describe 'stop' do
     expect(Stop.list_trains('Oregon City').length).to eq 2
   end
 
-  it 'lists the correct number of stations for a single train' do
+  it 'lists the correct number of stops for a single station' do
     create_test
     save_test
     expect(Stop.list_stops('Red').length).to eq 2
