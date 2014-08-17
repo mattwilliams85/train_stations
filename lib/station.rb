@@ -52,4 +52,8 @@ class Station
     @name = new_name
   end
 
+  def delete
+    DB.exec("DELETE FROM stations WHERE name='#{self.name}'")
+  end
+
 end

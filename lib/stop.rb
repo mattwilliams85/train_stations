@@ -56,4 +56,9 @@ class Stop
     end
     @stations
   end
+
+  def self.delete(train_id,station_id)
+    DB.exec("DELETE FROM stops WHERE train_id=#{train_id} AND station_id=#{station_id}")
+  end
+
 end

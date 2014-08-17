@@ -45,4 +45,13 @@ class Train
     @result
   end
 
+  def delete
+    DB.exec("DELETE FROM trains WHERE name='#{self.name}'")
+  end
+
+  def update(new_name)
+    DB.exec("UPDATE trains SET name='#{new_name}' WHERE name='#{self.name}'")
+    @name = new_name
+  end
+
 end

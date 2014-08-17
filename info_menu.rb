@@ -6,8 +6,12 @@ def info_menu
   case gets.chomp
   when "1"
     train_info
+    continue
+    info_menu
   when "2"
     station_info
+    continue
+    info_menu
   when "3"
     main_menu
   else
@@ -19,7 +23,7 @@ end
 def train_info
   puts "\n"
   Train.all.each do |train|
-    puts "Line - #{train.name.upcase}"
+    puts "Line - #{train.name}"
     puts "-------------"
     Stop.all.each do |stop|
       if train.id == stop.train_id
@@ -28,8 +32,6 @@ def train_info
     end
     puts "\n"
   end
-  continue
-  info_menu
 end
 
 def station_info
@@ -44,6 +46,4 @@ def station_info
     end
     puts "\n"
   end
-  continue
-  info_menu
 end
